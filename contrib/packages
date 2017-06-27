@@ -1,0 +1,17 @@
+baconqrcode
+constant-time-encoding
+otp
+password-compat
+php-oauth2-client
+php-oauth2-server
+php-saml-ds
+php-secookie
+php-yubitwee
+random-compat
+twig-extensions
+vpn-admin-portal
+vpn-for-web
+vpn-lib-common
+vpn-server-api
+vpn-server-node
+vpn-user-portal

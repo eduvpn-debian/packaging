@@ -1,0 +1,22 @@
+#!/bin/bash -ve
+
+if [ ! -d "build" ]; then
+    mkdir build;
+fi
+
+pushd build
+
+for i in `cat ../packages`; do
+    if [ ! -f "$i.build" ]; then
+        if [ ! -d "$i" ]; then
+            git clone git@github.com:eduvpn-debian/$i;
+        fi
+        pushd $i;
+        git checkout debian
+        sudo mk-build-deps -i;
+	sudo rm $i-build-deps_*.deb
+        gbp buildpackage --git-debian-branch=debian --git-upstream-tag='%(version)s'
+        popd;
+        touch $i.build
+    fi
+done
