@@ -4,8 +4,8 @@ KEY=9BF9BF69E5DDE77F5ABE20DC966A924CE91888D2
 DIST=stretch
 REPO=eduvpn
 
-aptly publish drop ${DIST}
-aptly repo drop ${REPO}
+aptly publish drop ${DIST} || true
+aptly repo drop ${REPO} || true
 
 aptly repo create -architectures="amd64" ${REPO}
 aptly repo add ${REPO} build/*.deb
