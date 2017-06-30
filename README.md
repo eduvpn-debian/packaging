@@ -1,11 +1,23 @@
-Introduction
-============
+using the repository
+====================
+
+as root run:
+
+```
+# apt install apt-transport-https
+# curl -L https://static.eduvpn.nl/debian/eduvpn.key  | apt-key add -
+# echo "deb https://static.eduvpn.nl/debian/ stretch main" > /etc/apt/sources.list.d/eduvpn.list
+# apt update
+# apt install vpn-user-portal
+```
+
+Making the packages
+===================
 
 For all these steps you need the `git-buildpackage` package installed.
 
-
 Create a new EDUVPN package
-=========================
+---------------------------
 
 1 Fork the package to: https://github.com/eduvpn-debian
 
@@ -22,7 +34,7 @@ Create a new EDUVPN package
 
 
 Update existing package
-=======================
+-----------------------
 
 0. Make new release of your software or ask upstream to make release. 
 1. `git clone https://github.com/eduvpne-debian/<package> && cd <package>`
@@ -50,7 +62,7 @@ Update existing package
 
 
 Building the package
-====================
+--------------------
 
 1. check if package builds with `gbp build-package` or `dpkg-buildpackage` to
    ignore the git stuff. Note that gbp doesn't build with uncommitted changes. 
