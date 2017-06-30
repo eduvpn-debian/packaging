@@ -1,0 +1,16 @@
+#!/bin/bash -ve
+
+KEY=9BF9BF69E5DDE77F5ABE20DC966A924CE91888D2
+DIST=stretch
+REPO=eduvpn
+
+aptly publish drop ${DIST}
+aptly repo drop ${REPO}
+
+aptly repo create -architectures="amd64" ${REPO}
+aptly repo add ${REPO} build/*.deb
+aptly publish -distribution=${DIST} repo ${REPO}
+#aptly publish update -gpg-key=${KEY} stretch
+gpg --export --armor ${KEY} > ~/.aptly/public/${REPO}.key
+rsync -rv ~/.aptly/public/* eduvpn:/var/www/html/web/static/debian
+
