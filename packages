@@ -1,4 +1,3 @@
-python-eduvpn-client
 easy-rsa
 baconqrcode
 constant-time-encoding
@@ -17,3 +16,4 @@ vpn-for-web
 vpn-server-api
 vpn-server-node
 vpn-user-portal
+python-eduvpn-client
