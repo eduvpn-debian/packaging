@@ -1,0 +1,10 @@
+#!/bin/bash
+
+PACKAGES=`cat packages`
+pushd build
+
+for i in $PACKAGES; do
+	pushd $i;
+	uscan;
+	popd;
+done
