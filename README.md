@@ -19,17 +19,15 @@ For all these steps you need the `git-buildpackage` package installed.
 Create a new EDUVPN package
 ---------------------------
 
-1 Fork the package to: https://github.com/eduvpn-debian
-
-2. Create a new git repository on your build system with the same
+1. Create a new git repository on your build system with the same
    name as your package and run `git init` in it
 
-3. Download the released tarball for a package. make sure it is
+2. Download the released tarball for a package. make sure it is
    named `<name>-<version>.tar.bz2` or `.gz` or `.xz`
 
-4. inside the new git repo run `gbp import-orig path/to/<name>-<version>.tar.bz2`
+3. inside the new git repo run `gbp import-orig path/to/<name>-<version>.tar.bz2`
 
-5. create the debian folder with content. Copy this from an other
+4. create the debian folder with content. Copy this from an other
    repo and modify or use `dh_make`.
 
 
@@ -51,12 +49,11 @@ Update existing package
 
    Otherwise download release tarball and run `gbp import-orig path/to/<package>-<version>.tar.gz`
 
-4. increment version number using `dch -i`. Make sure release is set to `xenial`,
+4. increment version number using `dch -i`. Make sure release is set to `stable`,
    or whatever the platform is you are packaging for. The version number depends
    a bit on the package but rule of thumb is start with `<upstream_version>-1`,
-   and then continue with `<upstream_version>-1kern1` of you made a mistake and
-   want to fix the package itself. `<upstream_version>-1kern2` after that, etc.
-   Counting is reset to `<upstream_version>-1` in case of upstream release. We do
+   and then continue with `<upstream_version>-2` if you made a mistake and
+   want to fix the package itself. Conting is reset to `<upstream_version>-1` in case of upstream release. We do
    this do be as compatible as possible with debian packages. Some of our package
    are or will be part of Debian at some point.
 
@@ -66,6 +63,7 @@ Building the package
 
 1. check if package builds with `gbp build-package` or `dpkg-buildpackage` to
    ignore the git stuff. Note that gbp doesn't build with uncommitted changes. 
+   You can use `dh_make`to clean thw build repo.
 
 2. To make sure everything builds on launchpad you could build inside an
    empty system to make sure the build dependencies are right. Your
