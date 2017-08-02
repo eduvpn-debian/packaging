@@ -34,38 +34,24 @@ Create a new EDUVPN package
 Update existing package
 -----------------------
 
-0. Make new release of your software or ask upstream to make release. 
-1. `git clone https://github.com/eduvpne-debian/<package> && cd <package>`
+1. Make new release of your software or ask upstream to make release. 
 
-2. If the package has a watch file you can run `gbp import-orig --uscan`
+2. `git clone https://github.com/eduvpne-debian/<package> && cd <package>`
 
-3. If no watch file, add a watch file. Example:
+3. run `gbp import-orig --uscan`
 
-   https://github.com/kernsuite-debian/sourcery/blob/master/debian/watch
-
-   Documentation about watch file:
-
-   https://wiki.debian.org/debian/watch 
-
-   Otherwise download release tarball and run `gbp import-orig path/to/<package>-<version>.tar.gz`
-
-4. increment version number using `dch -i`. Make sure release is set to `stable`,
-   or whatever the platform is you are packaging for. The version number depends
-   a bit on the package but rule of thumb is start with `<upstream_version>-1`,
-   and then continue with `<upstream_version>-2` if you made a mistake and
-   want to fix the package itself. Conting is reset to `<upstream_version>-1` in case of upstream release. We do
-   this do be as compatible as possible with debian packages. Some of our package
-   are or will be part of Debian at some point.
+4. run `gbp dch -D stable` and customize `debian/changelog` to your needs. Usualy one
+   line with `new upstream release` should be enough.
 
 
 Building the package
 --------------------
 
-1. check if package builds with `gbp build-package` or `dpkg-buildpackage` to
-   ignore the git stuff. Note that gbp doesn't build with uncommitted changes. 
-   You can use `dh_make`to clean thw build repo.
+1. install the build dependencies by running `mk-build-deps -i` in the source root
 
-2. To make sure everything builds on launchpad you could build inside an
+2. check if package builds with `gbp build-package`
+
+3. To make sure everything builds you could build inside an
    empty system to make sure the build dependencies are right. Your
    system probably has all kind of stuff installed, so it is wise to do
    it in a chroot. Debian has all kind of funky utilities for this, for example:
@@ -83,17 +69,14 @@ Building the package
     everything works. If changes are minimal al quick build test could be
     enough.
 
-3. check if package installs. Preferably in an empty system (or docker image).
+4. check if package installs. Preferably in an empty system (or docker image).
 
 
-Uploading changes to github and launchpad
-=========================================
+Uploading changes to github
+===========================
 
 1. If everything looks awesome run `gbp build-package --git-tag` to
    tag this version.
 
 2. run `git push --all && git push --tags` to upload all your changes to github
 
-3. run `debuild -S -sa` for building a source package in the parent
-
-4. run `dput ppa:eduvpn/ppa ../<package_<version>_source.changes`
