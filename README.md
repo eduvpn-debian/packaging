@@ -5,8 +5,8 @@ as root run:
 
 ```
 # apt install apt-transport-https
-# curl -L https://static.eduvpn.nl/debian/eduvpn.key  | apt-key add -
-# echo "deb https://static.eduvpn.nl/debian/ stretch main" > /etc/apt/sources.list.d/eduvpn.list
+# curl -L https://repo.eduvpn.org/debian/eduvpn.key  | apt-key add -
+# echo "deb https://repo.eduvpn.org/debian/ stretch main" > /etc/apt/sources.list.d/eduvpn.list
 # apt update
 # apt install vpn-user-portal
 ```
