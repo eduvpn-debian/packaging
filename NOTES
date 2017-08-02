@@ -1,6 +1,0 @@
-the build_all script fails at the moment on 2 pakcages since the repos contain .gitattribe files ignoring a proper export.
-
-for now you need to do this manually:
-
- $ tar --exclude debian --exclude .git -zcvf password-compat_1.0.4.orig.tar.gz password-compat
- $ tar --exclude debian --exclude .git -zcvf random-compat_2.0.10.orig.tar.gz random-compat

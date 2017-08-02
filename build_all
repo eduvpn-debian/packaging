@@ -4,7 +4,7 @@ if [ ! -d "build" ]; then
     mkdir build;
 fi
 
-sudo apt -y install devscripts git git-buildpackage
+sudo apt -y install devscripts git git-buildpackage equivs
 pushd build
 
 for i in `cat ../packages`; do
@@ -12,12 +12,14 @@ for i in `cat ../packages`; do
         if [ ! -d "$i" ]; then
             git clone git@github.com:eduvpn-debian/$i
         fi
-	sudo apt --fix-broken install
+        sudo apt --fix-broken install
         pushd $i
+        dh_clean
+        git pull
         sudo mk-build-deps -i || true
-	sudo apt --fix-broken install
-	rm -f *-build-deps_*_all.deb 
-	dh_clean
+        sudo apt --fix-broken install
+        rm -f *-build-deps_*_all.deb 
+        dh_clean
         gbp buildpackage --git-ignore-new
         popd
         touch $i.build
