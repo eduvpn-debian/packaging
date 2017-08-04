@@ -1,0 +1,9 @@
+Bootstrap: docker
+From: debian:jessie
+
+%post
+apt-get update
+apt-get -y install git-buildpackage git apt-transport-https vim
+curl -L https://repo.eduvpn.org/debian/eduvpn.key  | apt-key add -
+echo "deb https://repo.eduvpn.org/debian/ stretch main" > /etc/apt/sources.list.d/eduvpn.list
+apt update
