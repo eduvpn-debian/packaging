@@ -1,5 +1,24 @@
-using the repository
-====================
+Introduction
+============
+
+This is the start point for all eduVPN related packaging work. Please report any issues with
+the packages in the issue tracker of this repository.
+
+Every package has its own git repo in the eduvpn-debian github project. On every release
+a the package is imported, the debian files are updated and a new package is uploaded to the repository.
+
+We try to follow the Debian workflow as much as possible. To read more about this check out the
+git-buildpackage documentation:
+
+http://honk.sigxcpu.org/projects/git-buildpackage/manual-html/gbp.html
+
+Or if you need to know more about Debian packaging in general read the maintainers guide:
+
+https://www.debian.org/doc/manuals/maint-guide/
+
+
+Enable the repository
+=====================
 
 as root run:
 
@@ -8,7 +27,7 @@ as root run:
 # curl -L https://repo.eduvpn.org/debian/eduvpn.key  | apt-key add -
 # echo "deb https://repo.eduvpn.org/debian/ stretch main" > /etc/apt/sources.list.d/eduvpn.list
 # apt update
-# apt install vpn-user-portal
+# apt install eduvpn-client
 ```
 
 Making the packages
