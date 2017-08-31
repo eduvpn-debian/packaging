@@ -64,9 +64,12 @@ Update existing package
    a local checkout and switch back to master with `checkout master`, repeat step 3.
 
 4. run `gbp dch -D stable` and customize `debian/changelog` to your needs. Usualy one
-   line with `new upstream release` should be enough. Check if the package builds, if
-   not you need to modify the `debian` files, like adding missing dependencies in
-   `debian/control`.
+   line with `new upstream release` should be enough. 
+   
+5. Make the changelog entry final `git commit debian/changelog -m "new upstream release"`
+
+6. Check if the package builds, if not you need to modify the `debian` files, like adding
+   missing dependencies in `debian/control`.
 
 
 Building the package
