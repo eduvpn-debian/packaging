@@ -96,7 +96,7 @@ Building the package
 
 2. check if package builds with `gbp build-package`
 
-3. To make sure everything builds you could build inside an
+3. (optional) To make sure everything builds you could build inside an
    empty system to make sure the build dependencies are right. Your build
    system probably has all kind of packages installed that falsely satisfy build
    dependencies, so it is wise to do it in a clean chroot. Debian has all kind of
