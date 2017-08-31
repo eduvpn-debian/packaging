@@ -58,17 +58,20 @@ Update existing package
 
 2. `git clone https://github.com/eduvpne-debian/<package> && cd <package>`
 
-3. run `gbp import-orig --uscan` to update the package to the latest version.
+3. If you already have a checkout, cleanup the source folder. `dh_clean` should
+   work, otherwise run `git clean -f -d`.
 
-4. If gbp complains there is no upstream branch, run `checkout upstream` to create
+4. run `gbp import-orig --uscan` to update the package to the latest version.
+
+5. If gbp complains there is no upstream branch, run `checkout upstream` to create
    a local checkout and switch back to master with `checkout master`, repeat step 3.
 
-4. run `gbp dch -D stable` and customize `debian/changelog` to your needs. Usualy one
+6. run `gbp dch -D stable` and customize `debian/changelog` to your needs. Usualy one
    line with `new upstream release` should be enough. 
    
-5. Make the changelog entry final `git commit debian/changelog -m "new upstream release"`
+7. Make the changelog entry final `git commit debian/changelog -m "new upstream release"`
 
-6. Check if the package builds, if not you need to modify the `debian` files, like adding
+8. Check if the package builds, if not you need to modify the `debian` files, like adding
    missing dependencies in `debian/control`.
 
 
