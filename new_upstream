@@ -1,0 +1,15 @@
+#!/bin/bash -ve
+
+
+echo "* run this from a debian source folder"
+
+dh_clean
+git pull
+git checkout upstream
+git checkout master
+gbp import-orig --uscan
+gbp dch -D stable
+git commit debian/changelog -m "new upstream release"
+gbp build-package --git-tag
+git push --all
+git push --tags

@@ -1,10 +1,11 @@
 #!/bin/bash -ve
 
+echo "* this script requires packages: devscripts git git-buildpackage equivs"
+
 if [ ! -d "build" ]; then
     mkdir build;
 fi
 
-sudo apt -y install devscripts git git-buildpackage equivs
 pushd build
 
 for i in `cat ../packages`; do
