@@ -33,7 +33,20 @@ as root run:
 Making the packages
 ===================
 
-For all these steps you need the `git-buildpackage` package installed.
+For all these steps you need the `git-buildpackage` package installed. The signing
+of the packages happens with gnupg, so make sure you have that also installed
+and that your keypair is available for signing.
+
+Also make sure you set the Debian invironment variables, which will be used
+in updating the changelog entry. The information needs to match your gnupg
+key information. You can optionally specify a parallel flag to speed up
+compilation.
+
+```
+declare -x DEBEMAIL="gijs@pythonic.nl"
+declare -x DEBFULLNAME="Gijs Molenaar (launchpad ppa build key)"
+declare -x DEB_BUILD_OPTIONS="parallel=32"
+```
 
 Create a new EDUVPN package
 ---------------------------
