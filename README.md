@@ -117,6 +117,15 @@ Building the package
 
 4. check if package installs. Preferably in an empty system (or docker image).
 
+Publishing the package
+----------------------
+
+There are various package publishing tools available, but aptly seems quite
+complete. https://www.aptly.info
+
+Check out this script for an example on how to create a repository locally,
+and then publish this remotely: https://github.com/eduvpn-debian/packaging/blob/master/repo_upload
+
 
 Uploading changes to github
 ===========================
