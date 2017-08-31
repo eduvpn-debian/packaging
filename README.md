@@ -43,9 +43,9 @@ key information. You can optionally specify a parallel flag to speed up
 compilation.
 
 ```
-declare -x DEBEMAIL="gijs@pythonic.nl"
-declare -x DEBFULLNAME="Gijs Molenaar (launchpad ppa build key)"
-declare -x DEB_BUILD_OPTIONS="parallel=32"
+DEBEMAIL="gijs@pythonic.nl"
+DEBFULLNAME="Gijs Molenaar (launchpad ppa build key)"
+DEB_BUILD_OPTIONS="parallel=32"
 ```
 
 Create a new EDUVPN package
