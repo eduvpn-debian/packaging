@@ -7,9 +7,10 @@ dh_clean
 git pull
 git checkout upstream
 git checkout master
+git clean -f -d
 gbp import-orig --uscan
 gbp dch -D stable
 git commit debian/changelog -m "new upstream release"
-gbp build-package --git-tag
+gbp buildpackage --git-tag
 git push --all
 git push --tags
