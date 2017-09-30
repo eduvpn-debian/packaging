@@ -1,6 +1,9 @@
 #!/bin/bash -ve
 
-echo "* this script requires packages: devscripts git git-buildpackage equivs"
+# this script will clone all eduVPN package repositories and build them
+# it will install required dependencies during the run, so it requires root access
+#
+# package dependencies: sudo devscripts git git-buildpackage equivs
 
 if [ ! -d "build" ]; then
     mkdir build;
