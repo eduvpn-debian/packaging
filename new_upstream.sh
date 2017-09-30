@@ -1,7 +1,9 @@
 #!/bin/bash -ve
 
-
-echo "* run this from a debian source folder"
+# Will update the package repository on new upstream release.
+# Will only work if the build dependenices and scripts don't require a change
+# Run from the debian package source folder.
+# package dependencies: git-buildpackage and devscripts.
 
 dh_clean
 git pull
