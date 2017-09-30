@@ -1,6 +1,8 @@
 #!/bin/bash -ve
 
-#sudo apt -y install aptly
+# create a repository and sync with the eduVPN public repository.
+#
+# package dependencies: aptly
 
 KEY=9BF9BF69E5DDE77F5ABE20DC966A924CE91888D2
 DIST=stretch
