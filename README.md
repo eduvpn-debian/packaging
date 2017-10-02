@@ -103,7 +103,10 @@ Building the package
 1. install the build dependencies by running `mk-build-deps -i` in the source root.
    You can remove the requirements `deb` package in the source root afterwards.
 
-2. check if package builds with `gbp build-package`
+2. check if package builds with `gbp build-package`. If you are not a eduVPN
+   repository maintainer, you should disable the signing of the resulting packages
+   (by adding `-us` and `-uc` flags to the `gbp` command), or update the changelog
+   entry.
 
 3. (optional) To make sure everything builds you could build inside an
    empty system to make sure the build dependencies are right. Your build
