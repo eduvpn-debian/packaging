@@ -22,18 +22,21 @@ modern Debian based distribution.
 Enable the repository
 =====================
 
-as root run:
+To enable the official eduVPN package repository to your system run as root:
 
 ```
 # apt install apt-transport-https
 # curl -L https://repo.eduvpn.org/debian/eduvpn.key  | apt-key add -
 # echo "deb https://repo.eduvpn.org/debian/ stretch main" > /etc/apt/sources.list.d/eduvpn.list
 # apt update
-# apt install eduvpn-client
 ```
 
 Making the packages
 ===================
+
+Some eduVPN packages depend on each other, also during build time. The easiest
+way to satisfy these depenencies is to just add the eduVPN repository to your system.
+This will enable the auto installation of required eduVPN packages during the build.
 
 For all these steps you need the `git-buildpackage` package installed. The signing
 of the packages happens with gnupg, so make sure you have that also installed
