@@ -16,6 +16,8 @@ Or if you need to know more about Debian packaging in general read the maintaine
 
 https://www.debian.org/doc/manuals/maint-guide/
 
+The commands below have been tested on Ubuntu 17.04 and Debian 9, but should work with any
+modern Debian based distribution.
 
 Enable the repository
 =====================
