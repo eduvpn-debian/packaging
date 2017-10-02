@@ -50,7 +50,7 @@ DEBFULLNAME="Gijs Molenaar (launchpad ppa build key)"
 DEB_BUILD_OPTIONS="parallel=32"
 ```
 
-Create a new EDUVPN package
+Create a new eduVPN package
 ---------------------------
 
 1. Create a new git repository on your build system with the same
@@ -71,7 +71,7 @@ Update existing package
 
 1. Make new release of your software or ask upstream to make release. 
 
-2. `git clone https://github.com/eduvpne-debian/<package> && cd <package>`
+2. `git clone https://github.com/eduvpn-debian/<package> && cd <package>`
 
 3. If you already have a checkout, cleanup the source folder. `dh_clean` should
    work, otherwise run `git clean -f -d`.
@@ -114,7 +114,7 @@ Building the package
 
     * `pbuilder --create` to create a chroot
     * `pdebuild` to build source package in chroot
-    * You probably need to add the eduvpn PPA as a dependency to your chroot
+    * You probably need to add the eduVPN PPA as a dependency to your chroot
       https://pbuilder.alioth.debian.org/#usingspecialaptsources
 
     Note that you don't *have* to use the chroot, it is just to make sure
