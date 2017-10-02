@@ -86,6 +86,10 @@ Update existing package
 
 8. Check if the package builds, if not you need to modify the `debian` files, like adding
    missing dependencies in `debian/control`.
+   
+An example script containing these steps can be found here:
+
+https://github.com/eduvpn-debian/packaging/blob/master/new_upstream.sh
 
 
 Building the package
@@ -117,6 +121,10 @@ Building the package
 
 4. check if package installs. Preferably in an empty system (or docker image).
 
+An example script for building all eduVPN packages can be found here:
+
+https://github.com/eduvpn-debian/packaging/blob/master/build_all.sh
+
 Publishing the package
 ----------------------
 
@@ -124,7 +132,9 @@ There are various package publishing tools available, but aptly seems quite
 complete. https://www.aptly.info
 
 Check out this script for an example on how to create a repository locally,
-and then publish this remotely: https://github.com/eduvpn-debian/packaging/blob/master/repo_upload
+and then publish this remotely:
+
+https://github.com/eduvpn-debian/packaging/blob/master/repo_upload.sh
 
 
 Uploading changes to github
