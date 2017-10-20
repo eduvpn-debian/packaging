@@ -1,4 +1,4 @@
-#!/bin/bash -ve
+#!/bin/bash -v
 
 # checks if there is an update available for any eduVPN package.
 # Will only print out information.
