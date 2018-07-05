@@ -14,7 +14,7 @@ fi
 
 pushd build
 
-for i in `cat ../packages`; do
+for i in `cat ../packages | grep -v ^#`; do
     if [ ! -f "$i.build" ]; then
 	# checkout if don't exist yet
         if [ ! -d "$i" ]; then
