@@ -5,11 +5,11 @@
 # package dependencies: aptly
 
 KEY=9BF9BF69E5DDE77F5ABE20DC966A924CE91888D2
-DIST=stretch
 REPO=eduvpn
 
 # remove any old local repository
-aptly publish drop ${DIST} || true
+aptly publish drop stable || true
+aptly publish drop stretch || true
 aptly repo drop ${REPO} || true
 
 # create a new repository
@@ -22,13 +22,13 @@ aptly repo add ${REPO} build/*.deb
 aptly repo add ${REPO} build/*.dsc
 
 # localy publish the repository
-#aptly publish -gpg-key=${KEY} -distribution=${DIST} -architectures="amd64,i386" repo ${REPO}
-aptly publish -gpg-key=${KEY} -distribution=${DIST} -architectures="amd64,i386,all,source" repo ${REPO}
-#aptly publish update -gpg-key=${KEY} stretch
+aptly publish -gpg-key=${KEY} -distribution=stable -architectures="amd64,i386,all,source" repo ${REPO}
+aptly publish -gpg-key=${KEY} -distribution=stretch -architectures="amd64,i386,all,source" repo ${REPO}
 
 # export the key which was used during packaging
 gpg --export --armor ${KEY} > ~/.aptly/public/${REPO}.key
 
 # publish the repo online
-rsync -4rv --del ~/.aptly/public/* gimo@static.eduvpn.nl:/var/www/html/web/repo/debian
+rsync -4rv --del ~/.aptly/public/* gimo@static.eduvpn.nl:/var/www/html/web/app/linux/deb
+
 
