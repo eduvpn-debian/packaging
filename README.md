@@ -127,6 +127,9 @@ Building the package
     everything works. If changes are minimal al quick build test could be
     enough.
 
+    NOTE: when building on ubuntu 21.10 make sure you use xz as compressor:
+          gbp buildpackage --git-ignore-new --git-builder='debuild -i -I -Zxz'
+
 4. check if package installs. Preferably in an empty system (or docker image).
 
 An example script for building all eduVPN packages can be found here:
