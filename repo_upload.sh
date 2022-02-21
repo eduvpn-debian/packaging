@@ -13,7 +13,7 @@ aptly publish drop stretch || true
 aptly repo drop ${REPO} || true
 
 # create a new repository
-aptly repo create -architectures="amd64,i386" ${REPO}
+aptly repo create -architectures="amd64,i386,arm64" ${REPO}
 
 # add the binary packages 
 aptly repo add ${REPO} build/*.deb
@@ -22,8 +22,8 @@ aptly repo add ${REPO} build/*.deb
 aptly repo add ${REPO} build/*.dsc
 
 # localy publish the repository
-aptly publish -gpg-key=${KEY} -distribution=stable -architectures="amd64,i386,all,source" repo ${REPO}
-aptly publish -gpg-key=${KEY} -distribution=stretch -architectures="amd64,i386,all,source" repo ${REPO}
+aptly publish -gpg-key=${KEY} -distribution=stable -architectures="arm64,amd64,i386,all,source" repo ${REPO}
+aptly publish -gpg-key=${KEY} -distribution=stretch -architectures="arm64,amd64,i386,all,source" repo ${REPO}
 
 # export the key which was used during packaging
 gpg --export --armor ${KEY} > ~/.aptly/public/${REPO}.key
